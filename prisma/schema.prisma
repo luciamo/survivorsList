@@ -1,0 +1,21 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// npx prisma migrate dev
+// npx prisma studio
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://admin:admin@localhost:5432"
+}
+
+model Survivor {
+  id Int @id @default(autoincrement())
+  name String
+  age Int
+  infected Boolean @default(false)
+  location Int[]
+}
